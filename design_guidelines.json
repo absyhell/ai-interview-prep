@@ -1,0 +1,149 @@
+{
+  "theme": {
+    "mode": "dark",
+    "toggle_available": true,
+    "archetype": "4 (Swiss & High-Contrast)",
+    "description": "A high-contrast, function-first, and highly accessible Swiss Brutalist aesthetic. Emphasizes authority and clarity. 95% of the UI is monochrome to reduce cognitive load during focused tasks like interviewing and resume reviewing, with one sharp accent color for actionable elements."
+  },
+  "colors": {
+    "light": {
+      "background": "#FFFFFF",
+      "surface": "#F9FAFB",
+      "border": "#E5E7EB",
+      "text_primary": "#0A0A0A",
+      "text_secondary": "#4B5563",
+      "primary": "#002FA7",
+      "primary_hover": "#00227A",
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "danger": "#EF4444"
+    },
+    "dark": {
+      "background": "#050505",
+      "surface": "#111111",
+      "border": "#27272A",
+      "text_primary": "#F9FAFB",
+      "text_secondary": "#A1A1AA",
+      "primary": "#3366FF",
+      "primary_hover": "#5C85FF",
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "danger": "#EF4444"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Cabinet Grotesk, sans-serif",
+      "body": "IBM Plex Sans, sans-serif",
+      "mono": "IBM Plex Mono, monospace"
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tighter font-black",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight font-bold",
+      "h3": "text-xl sm:text-2xl tracking-tight font-semibold",
+      "h4": "text-lg sm:text-xl font-medium",
+      "body": "text-base leading-relaxed",
+      "small": "text-sm",
+      "overline": "text-xs uppercase tracking-[0.2em] font-semibold"
+    },
+    "rules": [
+      "Headings must use tight letter spacing.",
+      "Never use Inter, Roboto, or Open Sans for headings.",
+      "Jump between heading and subheading must not exceed 2 Tailwind steps.",
+      "Use mono font for ATS scores, timers, and code-like elements."
+    ]
+  },
+  "spacing_and_layout": {
+    "system": "Tailwind Scale: Generous Spacing (p-6, p-8, p-12)",
+    "grid_mode": "MODE B: THE CONTROL ROOM GRID",
+    "dashboard_grid": {
+      "columns": "grid-cols-1 md:grid-cols-3 lg:grid-cols-4",
+      "gap": "gap-6",
+      "widget_rules": [
+        "Summary metrics: col-span-1",
+        "Primary charts: col-span-2 row-span-2 or col-span-3",
+        "Activity feed/list: col-span-1 row-span-2"
+      ]
+    },
+    "rules": [
+      "Mobile-First: Always start with grid-cols-1.",
+      "Containers with borders must have internal padding (p-6 or p-8) to prevent text collision.",
+      "Every pixel utilized in the dashboard. Use h-full on children.",
+      "F-Pattern Information Architecture: Top-left quadrant for North Star Metric (e.g., Average ATS Score or Streak)."
+    ]
+  },
+  "surface_strategies": {
+    "dashboard_cards": {
+      "style": "Grid Borders (The 'Technical' Look) or Sharp Edges, Cardless",
+      "rules": [
+        "Expose the skeleton. Make the grid visible.",
+        "Flat background, 1px subtle border, no heavy drop shadows.",
+        "On hover: Slight lift (-translate-y-1), border color darkens or brightens depending on mode."
+      ]
+    },
+    "headers_nav": {
+      "style": "Solid Background or Glassmorphism (Optical Clarity)",
+      "rules": [
+        "If content scrolls under: backdrop-blur-xl bg-background/80 with 1px delicate bottom inner stroke.",
+        "Must include toggle for sidebar."
+      ]
+    }
+  },
+  "components": {
+    "libraries": [
+      "lucide-react (Icons)",
+      "recharts (Dashboard Charts)",
+      "framer-motion (Interactions)",
+      "shadcn/ui (Base primitives: Dialog, Dropdown, Table, Tabs)"
+    ],
+    "customizations": {
+      "buttons": "Sharp corners (rounded-none or rounded-sm), high contrast. Text color explicitly set on hover.",
+      "inputs": "1px solid border, sharp corners, distinct focus ring (focus:ring-2 focus:ring-primary).",
+      "charts": "Accessible color palettes, color-blind friendly. Use text labels instead of just color for status.",
+      "sidebar": "Collapsible left-sidebar. High contrast active state for current route."
+    }
+  },
+  "motion_and_interaction": {
+    "rules": [
+      "Hover states on all interactive elements.",
+      "Always explicitly set text color on hover (e.g., hover:bg-white hover:text-black).",
+      "Staggered entrance animations for lists (e.g., recent interview attempts).",
+      "Micro-interactions: Button press scale down (scale-95).",
+      "Respect prefers-reduced-motion."
+    ]
+  },
+  "testing": {
+    "attributes": [
+      "All interactive elements MUST include a data-testid attribute in kebab-case."
+    ]
+  },
+  "media": {
+    "image_urls": [
+      {
+        "url": "https://images.unsplash.com/photo-1771814591138-6aaab1bce775?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMHNsZWVrJTIwZ3JhZGllbnQlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc3NzIzNDI3OXww&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract dark background with colorful light streaks",
+        "category": "auth_background"
+      },
+      {
+        "url": "https://images.pexels.com/photos/4252665/pexels-photo-4252665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Dynamic black and white abstract geometric pattern",
+        "category": "resume_analyzer_empty_state_bg"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1758518731468-98e90ffd7430?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBkaXZlcnNlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzc3MjM0Mjc5fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Four professionals in business attire",
+        "category": "testimonial_or_about_team"
+      }
+    ],
+    "rules": [
+      "Never use placeholder URLs.",
+      "Apply bg-black/50 or bg-white/40 overlays to hero images to ensure text contrast if text is placed on them."
+    ]
+  },
+  "specific_views": {
+    "auth": "Split screen layout. Left side: Abstract dark background with light streaks and brief value prop. Right side: Minimalist login/signup form, sharp borders.",
+    "dashboard": "Top left: Current Streak and Avg Score (North Star). Control Room Grid. Line chart for scores over time. Radar chart for weak areas (DSA, HR, Core). List of recent attempts.",
+    "resume_analyzer": "Split view. Left: PDF upload zone with generous padding and dashed border. Right: ATS score dial (circular progress), missing keywords chips, improvement suggestions.",
+    "mock_interview": "Focus mode. Minimalist header. Left sidebar collapses. Main area: Large centered question (Cabinet Grotesk), Mono font timer, wide text area for answer. Followed by AI evaluation score in stark contrasting color."
+  }
+}

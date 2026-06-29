@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'ss01' on, 'cv01' on;
+}
+
+code, .font-mono {
+    font-family: 'IBM Plex Mono', Menlo, monospace;
+}
+
+.font-display {
+    font-family: 'Cabinet Grotesk', 'IBM Plex Sans', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 4%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 4%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 4%;
+        --primary: 224 100% 33%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 220 14% 96%;
+        --secondary-foreground: 0 0% 9%;
+        --muted: 220 14% 96%;
+        --muted-foreground: 220 9% 35%;
+        --accent: 220 14% 96%;
+        --accent-foreground: 0 0% 9%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 220 13% 91%;
+        --input: 220 13% 91%;
+        --ring: 224 100% 33%;
+        --chart-1: 224 100% 50%;
+        --chart-2: 160 84% 39%;
+        --chart-3: 38 92% 50%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 0 84% 60%;
+        --radius: 0.125rem;
+    }
+    .dark {
+        --background: 0 0% 2%;
+        --foreground: 0 0% 98%;
+        --card: 0 0% 6.5%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 6.5%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 225 100% 60%;
+        --primary-foreground: 0 0% 5%;
+        --secondary: 0 0% 12%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 12%;
+        --muted-foreground: 240 5% 65%;
+        --accent: 0 0% 14%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 70% 55%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 4% 16%;
+        --input: 240 4% 16%;
+        --ring: 225 100% 60%;
+        --chart-1: 225 100% 65%;
+        --chart-2: 160 70% 50%;
+        --chart-3: 38 92% 60%;
+        --chart-4: 280 65% 70%;
+        --chart-5: 340 75% 55%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+    ::selection {
+        background: hsl(var(--primary));
+        color: hsl(var(--primary-foreground));
+    }
+}
+
+/* Sharp Swiss Brutalist styling */
+.brutal-card {
+    @apply border border-border bg-card relative;
+}
+.brutal-card::after {
+    content: '';
+    position: absolute;
+    top: 6px; left: 6px;
+    width: 6px; height: 6px;
+    background: hsl(var(--foreground));
+    opacity: 0.9;
+}
+
+.grid-overline {
+    @apply uppercase tracking-[0.22em] text-xs font-semibold text-muted-foreground;
+}
+
+.hover-lift {
+    transition: transform 200ms ease, border-color 200ms ease, background-color 200ms ease;
+}
+.hover-lift:hover {
+    transform: translateY(-2px);
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+    animation: fadeUp 350ms ease-out both;
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 0;
+}
+
+@layer base {
+    [data-debug-wrapper="true"] { display: contents !important; }
+}
